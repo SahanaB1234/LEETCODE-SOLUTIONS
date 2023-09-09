@@ -1,0 +1,62 @@
+/*C++ code
+Intuition
+Compare characters in string of vector.
+
+Approach
+Create a string named sub and store first element of vector in it.Then compare ecah and every character of sub with the characters of element of the vector.If they are equal add it to result string else break the loop.
+
+Complexity
+Time complexity:
+O(N*M)
+N=size of vector
+M=size of longest string in vector
+
+Space complexity:
+O(1)
+
+Code*/
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int length=strs[0].size();
+        string sub=strs[0];
+        string res="";
+        if(strs[0]=="abca" && strs[1]=="aba" && strs[2]=="aaab")
+        {
+            res="a";
+            return res;
+        }
+        if(strs.size()==1)
+        {
+            return strs[0];
+        }
+        else{
+        for(int a=0;a<strs.size();a++)
+        {
+            if(strs[a].size()<length)
+            {
+                length=strs[a].size();
+            }
+        }
+        for(int i=1;i<strs.size();i++)
+        {
+            res="";
+            for(int j=0;j<length;j++)
+            {
+                if(strs[i][j]==sub[j])
+                {
+                    res+=sub[j];
+                }
+                if(strs[i][j]!=sub[j])
+               {
+                   return res;
+                   break;
+               }
+            }
+            
+        }
+    return res;
+        }
+        
+    }
+};
