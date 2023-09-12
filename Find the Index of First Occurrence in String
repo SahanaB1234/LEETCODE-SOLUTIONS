@@ -1,0 +1,28 @@
+Intuition
+Spot first occurence of substring.
+
+Approach
+Using inbuilt find function found in c++ string class.
+
+Complexity
+Time complexity:
+O(n)-n is length of string haystack
+
+Space complexity:
+O(m)-m is length of string haystack
+
+Code
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        size_t res=haystack.find(needle);
+        if(res!=std::string::npos)
+        {
+            return res;
+        }
+        else{
+            return -1;
+        }
+        
+    }
+};
